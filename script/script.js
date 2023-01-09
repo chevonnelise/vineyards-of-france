@@ -5,9 +5,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // script
-const element = document.getElementById("search-btn");
-element.addEventListener("click", function(){
+const element = document.getElementById("welcome-btn");
+    element.addEventListener("click", function(){
     document.getElementById("frenchWines").innerHTML = "Discover the wines across France";
-})
+});
 
     
