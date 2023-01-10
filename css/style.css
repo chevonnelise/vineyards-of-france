@@ -1,11 +1,8 @@
 body {
-    height: 50vh;
+    max-height: 100vh;
+    overflow-y: scroll;
     width: auto;
     font-family: 'Quicksand', 'Nunito', sans-serif;
-    background-image: url("../images/wine-oclock.png");
-    background-size: 200px;
-    background-repeat: no-repeat;
-    overflow-y: scroll;
 }
 
 #map-container {
