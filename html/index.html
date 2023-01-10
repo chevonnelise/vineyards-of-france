@@ -42,7 +42,7 @@
 
 
     <!-- Button trigger modal -->
-    <div id="welcome-container" class="container" style="align-item:center" img src="../images/wine-oclock.png"
+    <div id="welcome-container" class="container" style="justify-content: center;" img src="../images/wine-oclock.png"
       alt="wine-oclock">
       <button id="welcome-btn" type="button" class="btn" style="background-color: rgb(227, 196, 255);"
         data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -117,7 +117,7 @@
               <h3 style="color:rgb(129, 2, 118);">Take your pick</h3>
               <br>
               <!-- Choose a wine region -->
-              <div>
+              <div id="wine-region">
                 <label for="region" style="color:rgb(0, 0, 0);">Wine region:</label>
               </div>
               <br>
@@ -132,41 +132,62 @@
                 <option value="Rhône">Rhône</option>
                 <option value="the Loire Valley">the Loire Valley</option>
               </select>
+
+
+              <br><br><br>
+              <div class="slidecontainer">
+                <p>Year</p>
+                <input type="range" min="1000" max="2023" value="50" class="slider" id="myRange">
+              </div>
+
+              <br><br>
+              <div id="grape-varieties">
+                <div>
+                  <label for="region" style="color:rgb(0, 0, 0);">Which grape variety?</label>
+                </div>
+                <br>
+                <select name="region" id="region" style="color:rgb(112, 8, 103);">
+                  <option value="Alsace">Alsace</option>
+                  <option value="Bordeaux">Bordeaux</option>
+                  <option value="Burgundy">Burgundy</option>
+                  <option value="Champagne">Champagne</option>
+                  <option value="Corsica">Corsica</option>
+                  <option value="Languedoc">Languedoc</option>
+                  <option value="Provence">Provence</option>
+                  <option value="Rhône">Rhône</option>
+                  <option value="the Loire Valley">the Loire Valley</option>
+                </select>
+              </div>
+
             </div>
 
-            <br>
-            <div class="slidecontainer" style="text-align:center;">
-              <p>Year</p>
-              <input type="range" min="1000" max="2023" value="50" class="slider" id="myRange">
-            </div>
-
-
-            <div class="justify-content-center">
+            <div class="dflex justify-content-center">
               <strong>Finding your wine...</strong>
               <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
             </div>
           </div>
+        </div>
 
+      </div>
+    </div>
+  </div>
+  <!-- Accordion 3 -->
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
+          aria-controls="panelsStayOpen-collapseThree">
+          What's popular?
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingThree">
+        <div class="accordion-body">
+          <p>Sharing the good stuff...</p>
         </div>
       </div>
     </div>
-    <!-- Accordion 3 -->
-    <div class="accordion" id="accordionPanelsStayOpenExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse"
-            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
-            aria-controls="panelsStayOpen-collapseThree">
-            What's popular?
-          </button>
-        </h2>
-        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
-          aria-labelledby="panelsStayOpen-headingThree">
-          <div class="accordion-body">
-            <p>Sharing the good stuff...</p>
-          </div>
-        </div>
-      </div>
 
 
 
