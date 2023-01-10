@@ -20,3 +20,4 @@ Google fonts for typography
 Fontawesome for icons
 GeoJSON files to plot geographical coordinates of locations
 Flaticon for icons
+Canva for images
