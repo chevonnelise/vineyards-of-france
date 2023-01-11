@@ -15,6 +15,34 @@ var vineyardIcon = L.icon({
     iconSize: [20,20]
 }); 
 
+loadData();
+
+async function loadData() {
+    // important: axios.get requires a URL
+    let response = await axios.get("wine-set.geojson");
+
+    // display the content of the geojson file on the map
+    // response.data holds the actual data from the geojson file
+    // the second paramter of L.geoJson is a configuration object
+    const wineLayer = L.geoJson(response.data, {
+        // onEachFeature is a fixed function name from Leaflet
+        // it is called for each feature in response.data
+        onEachFeature: function(feature, layer) {
+            // feature paramter to the data of the feature
+            console.log(feature);
+
+            // layer parameter is the shape, line or marker etc. that will be added to the map
+            layer.bindPopup(feature.properties.Description);
+        }
+    })
+
+    // add the wine region layer to the map
+    wineLayer.addTo(map);
+
+    wineLayer.setStyle({
+        color: 'red'
+    })
+}   
 
 
     
