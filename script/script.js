@@ -19,7 +19,7 @@ loadData();
 
 async function loadData() {
     // important: axios.get requires a URL
-    let response = await axios.get("wine-set.geojson");
+    let response = await axios.get("wine.geojson");
 
     // display the content of the geojson file on the map
     // response.data holds the actual data from the geojson file
