@@ -8,19 +8,23 @@ This is a one page map app website designed to be mobile responsive so that user
 Use the map to zoom in and out,
 
 ## Technologies used
-HTML
-CSS
-Javascript
-Figma for wireframe and UI design
-Leaflet documentation for map
-Bootstrap version 5.3 for layout and mobile-responsiveness
+<ol> 
+<li>HTML</li>
+<li>CSS</li>
+<li>Javascript</li>
+<li>Figma for wireframe and UI design</li>
+<li>Leaflet documentation for map</li>
+<li>Bootstrap version 5.3 for layout and mobile-responsiveness</li>
+</ol>
 
 ## Credits and Acknowledgement
-Google fonts for typography
-Fontawesome for icons
-<a href="https://gist.github.com/ajubin/d331f3251db4bd239c7a1efd0af54e38">GeoJSON file </a> to plot geographical coordinates of locations
-Flaticon for icons
-Canva for images
-<a href="https://www.vinovest.co/blog/french-wine-regions">Wine types</a>
-<a href="https://www.winepaths.com/articles/editorial/france/explore-wine-in-france-from-champagne-to-languedoc#:~:text=The%20main%20wine%20areas%20of,%2C%20Rh%C3%B4ne%2C%20Provence%20and%20Corsica.&text=Bordeaux%20on%20the%20Atlantic%20coast%20is%20among%20the%20most%20famous%20of%20wines.">Wine regions</a>
-<a href="https://www.eea.europa.eu/legal/copyright">European Commission</a>
+<ol>
+<li> Google fonts for typography</li>
+<li>Fontawesome for icons</li>
+<li><a href="https://gist.github.com/ajubin/d331f3251db4bd239c7a1efd0af54e38">GeoJSON file </a> to plot geographical coordinates of locations</li>
+<li>Flaticon for icons</li>
+<li>Canva for images</li>
+<li><a href="https://www.vinovest.co/blog/french-wine-regions">Wine types</a></li>
+<li><a href="https://www.winepaths.com/articles/editorial/france/explore-wine-in-france-from-champagne-to-languedoc#:~:text=The%20main%20wine%20areas%20of,%2C%20Rh%C3%B4ne%2C%20Provence%20and%20Corsica.&text=Bordeaux%20on%20the%20Atlantic%20coast%20is%20among%20the%20most%20famous%20of%20wines.">Wine regions</a></li>
+<li><a href="https://www.eea.europa.eu/legal/copyright">European Commission</a></li>
+</ol>
