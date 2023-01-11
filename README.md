@@ -1,11 +1,17 @@
 ## Vineyard Finder in France
-As a wine-lover, this vineyard finder will help me navigate and learn more about the different wine regions in France.
+This vineyard finder will help wine lovers navigate and learn more about the different wine regions in France.
 
 ## UI/UX Design
-This is a one page map app website designed to be mobile responsive so that users can easily access it on-the-go while travelling around France.
+With wine lovers as the main target audience, this is a one page map app website designed to be mobile responsive so that users can easily access it on-the-go while travelling around France.
 
 ## Features
-Use the map to zoom in and out,
+This one page map app is split into 4 sections using an accordion.
+<ol>
+<li>The first section has a welcome button that users can click on to learn about the app's purpose. On the left, the app shows its branding "wine o'clock".</li>
+<li>When users expand the second section (first accordion), they can view, navigate and learn more about the wine regions in France.</li>
+<li>Next, when users expand the third section (second accordion), they can select the wine they are interested in learning about and where to find it.</li>
+<li>Lastly,when users expand the fourth section (third accordion), they can view a chart of popular wines in France.</li>
+</ol>
 
 ## Technologies used
 <ol> 
