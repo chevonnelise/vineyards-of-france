@@ -1,21 +1,32 @@
 // map
-var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-});
+// var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     maxZoom: 19,
+//     attribution: '© OpenStreetMap'
+// });
 
-var streets = L.tileLayer(mapboxUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution});
+// var streets = L.tileLayer(mapboxUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution});
 
-var baseMaps = {
-  "OpenStreetMap": osm,
-  "Mapbox Streets": streets
-};
+// var baseMaps = {
+//   "OpenStreetMap": osm,
+//   "Mapbox Streets": streets
+// };
 
-var overlayMaps = {
-  "Cities": cities
-};
+// var overlayMaps = {
+//   "Cities": cities
+// };
 
-var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+
+// Setting up map
+let france = [46.2276, 2.2137];
+let map = L.map("map",{scrollWheelZoom: false}).setView(france, 9);
+console.log("Script.js is loaded")
+console.log(map)
+var vineyardIcon = L.icon({
+    iconUrl: "../images/grape.png", 
+    iconSize: [20,20]
+}); 
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
   maxZoom: 18,
   id: 'mapbox/streets-v11',
@@ -24,30 +35,24 @@ var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
   accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
 }).addTo(map);
 
-let france = [46.2276, 2.2137];
-let map = L.map("map",{scrollWheelZoom: false}).setView(france, 9);
-
-var vineyardIcon = L.icon({
-    iconURL: "../images/grape.png", 
-    iconSize: [20,20]
-}); 
-
 const resultLayer = L.layerGroup();
 resultLayer.addTo(map);
 
+
+// Event listener to search for results
 document.querySelector("#search-btn").addEventListener("click", async function () {
 
-  resultLayer.clearLayers();
-
   const searchTerms = document.querySelector("#search-terms").value;
+  console.log("hereeeeeeeee", searchTerms)
   const center = map.getBounds().getCenter();
   const ll = center.lat + "," + center.lng;
-  const results = await loadData(searchTerms, ll, 2000);
-  console.log(results)
+  const results = await loadData(searchTerms, ll, 20000);
+  console.log("results hereee", results)
   // plot markers
   for (let r of results.results) {
     const lat = r.geocodes.main.latitude;
     const lng = r.geocodes.main.longitude;
+    console.log(lat, lng)
     const marker = L.marker([lat, lng],{icon:vineyardIcon});
     marker.addTo(resultLayer);
     marker.bindPopup(r.name)
