@@ -31,153 +31,189 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
 
+  <!-- apex chart -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
   <!-- css -->
   <link rel="stylesheet" href="../css/style.css">
-
+  <link rel="stylesheet" href="../css/map.css">
+  <link rel="stylesheet" href="../css/chart.css">
+  
+  
   <title>Vineyards in France</title>
 </head>
 
 <body>
-  <div id="first-section">
+  <!-- Button trigger modal -->
+  <div id="welcome-container" class="container" >
+    <img src="../images/wine-oclock.png" style="width:200px;">
+    <button id="welcome-btn" type="button" class="btn"
+      style="background-color: rgb(227, 196, 255);" data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop">
+      Welcome
+    </button>
     
   </div>
 
-
-    <!-- Button trigger modal -->
-    <div id="welcome-container" class="container" style="justify-content: center;">
-      <button id="welcome-btn" type="button" class="btn" style="background-color: rgb(227, 196, 255);position: absolute; right: 50px;"
-        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Welcome
-      </button>
-      <img src="../images/wine-oclock.svg" style="width:200px;">
-    </div>
-
-    <!-- Vertically centered scrollable modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Wine lovers gather around!</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Learn more about the vineyards and different wine regions in France. Use this on-the-go as you travel around
-            France!
-          </div>
-          <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-            <button id="letsGo" type="button" class="btn" style="background-color: rgb(227, 196, 255);"
-              data-bs-dismiss="modal">Let's go</button>
-          </div>
+  <!-- Vertically centered scrollable modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Wine lovers gather around!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Learn more about the vineyards and different wine regions in France. Use this on-the-go as you travel around
+          France!
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button id="letsGo" type="button" class="btn" style="background-color: rgb(227, 196, 255);"
+            data-bs-dismiss="modal">Let's go</button>
         </div>
       </div>
     </div>
-    <br>
+  </div>
+  <br>
 
-    <!-- Accordion -->
-    <!-- Accordion 1 -->
-    <div class="accordion" id="accordionPanelsStayOpenExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse"
-            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-            aria-controls="panelsStayOpen-collapseOne">
-            Which region to go?
-          </button>
-        </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-          aria-labelledby="panelsStayOpen-headingOne">
-          <div class="accordion-body">
-            <!-- map -->
-            <div id="map-container" class="container-fluid">
-              <div id="map">
-                <input type="text" id="search-terms">
-                <button id="search-btn">Search</button>
-                <div id="search-results">
-                  <div id="search-results-list"></div>
+  <!-- Accordion -->
+  <!-- Accordion 1 -->
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+          Which region to go?
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          <!-- map -->
+          <div id="map-container" class="container-fluid">
+            <div id="map">
+              <div id="search-container">
+                <p>
+                  <button class="btn" style="background-color:rgb(227, 196, 255);" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false"
+                    aria-controls="collapseWidthExample">
+                    <i class="fa-solid fa-magnifying-glass" style="color:rgb(82, 82, 82)"></i>
+                  </button>
+                </p>
+                <div style="min-height: 120px;">
+                  <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                    <div class="card card-body" style="width: 300px;">
+                      <input type="text" id="search-terms">
+                      <div id="search-results">
+                        <div id="search-results-list"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Accordion 2 -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-            aria-controls="panelsStayOpen-collapseTwo">
-            Ready to select your wine?
-          </button>
-        </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-          aria-labelledby="panelsStayOpen-headingTwo">
-          <div class="accordion-body">
-            <!-- wine labels -->
-            <div style="text-align: center;">
-              <h3 style="color:rgb(129, 2, 118);">Take your pick</h3>
-              <br>
-              <!-- Choose a wine region -->
-              <div id="wine-region">
-                <label for="region" style="color:rgb(0, 0, 0);">Wine region:</label>
+    </div>
+    <!-- Accordion 2 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+          Ready to select your wine?
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingTwo">
+        <div class="accordion-body">
+          <br>
+          <!-- wine labels -->
+          <div style="text-align: center;">
+            <h3 style="color:rgb(129, 2, 118);">Take your pick<span>&nbsp;</span><i
+                class="fa-solid fa-pen-to-square"></i></h3>
+            <br>
+      <form>
+            <!-- Choose a wine region -->
+            <div id="wine-region">
+              <h5><label for="region" style="color:rgb(0, 0, 0);">Wine region:</label></h5>
+            </div>
+            <select name="region" id="region" style="color:rgb(112, 8, 103);">
+              <option value="Alsace">Alsace</option>
+              <option value="Bordeaux">Bordeaux</option>
+              <option value="Burgundy">Burgundy</option>
+              <option value="Champagne">Champagne</option>
+              <option value="Corsica">Corsica</option>
+              <option value="Languedoc">Languedoc</option>
+              <option value="Provence">Provence</option>
+              <option value="Rhône">Rhône</option>
+              <option value="the Loire Valley">the Loire Valley</option>
+            </select>
+
+
+            <br><br>
+            <div class="slidecontainer">
+              <h5><p>Year</p></h5>
+              <input type="range" min="1000" max="2023" value="50" class="slider" id="myRange">
+            </div>
+            <div id="grape-varieties">
+              <div>
+                <h5><label for="region" style="color:rgb(0, 0, 0);">Which grape variety?</label></h5>
               </div>
-              <br>
               <select name="region" id="region" style="color:rgb(112, 8, 103);">
-                <option value="Alsace">Alsace</option>
-                <option value="Bordeaux">Bordeaux</option>
-                <option value="Burgundy">Burgundy</option>
-                <option value="Champagne">Champagne</option>
-                <option value="Corsica">Corsica</option>
-                <option value="Languedoc">Languedoc</option>
-                <option value="Provence">Provence</option>
-                <option value="Rhône">Rhône</option>
-                <option value="the Loire Valley">the Loire Valley</option>
+                <option value="Cabernet France">Cabernet France</option>
+                <option value="Cabernet sauvignon">Cabernet Sauvignon</option>
+                <option value="Carignan">Carignan</option>
+                <option value="Chardonnay">Chardonnay</option>
+                <option value="Gamay">Gamay</option>
+                <option value="Grenache">Grenache</option>
+                <option value="Malbec">Malbec</option>
+                <option value="Merlot">Merlot</option>
+                <option value="Petit Verdot">Petit Verdot</option>
+                <option value="Pinot Noir">Pinot Noir</option>
+                <option value="Sauvignon blanc">Sauvignon blanc</option>
+                <option value="Syrah">Syrah</option>
+                <option value="Ugni Blanc (used for Cognac)">Ugni Blanc (used for Cognac)</option>
+                <option value="Voignier">Voignier</option>
               </select>
-
-
-              <br><br><br>
-              <div class="slidecontainer">
-                <p>Year</p>
-                <input type="range" min="1000" max="2023" value="50" class="slider" id="myRange">
-              </div>
-
-              <br><br>
-              <div id="grape-varieties">
-                <div>
-                  <label for="region" style="color:rgb(0, 0, 0);">Which grape variety?</label>
-                </div>
-                <br>
-                <select name="region" id="region" style="color:rgb(112, 8, 103);">
-                  <option value="Cabernet France">Cabernet France</option>
-                  <option value="Cabernet sauvignon">Cabernet Sauvignon</option>
-                  <option value="Carignan">Carignan</option>
-                  <option value="Chardonnay">Chardonnay</option>
-                  <option value="Gamay">Gamay</option>
-                  <option value="Grenache">Grenache</option>
-                  <option value="Malbec">Malbec</option>
-                  <option value="Merlot">Merlot</option>
-                  <option value="Petit Verdot">Petit Verdot</option>
-                  <option value="Pinot Noir">Pinot Noir</option>
-                  <option value="Sauvignon blanc">Sauvignon blanc</option>
-                  <option value="Syrah">Syrah</option>
-                  <option value="Ugni Blanc (used for Cognac)">Ugni Blanc (used for Cognac)</option>
-                  <option value="Voignier">Voignier</option>
-                </select>
-              </div>
-
             </div>
-
-            <div class="dflex justify-content-center">
-              <strong>Finding your wine...</strong>
-              <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+            <br><br>
+            <h5><p>Wine Categories</p></h5>
+            <div id="wine-categories" style="text-align:left">
+                <input type="radio" name="wineType" value="Red">
+                <label for="wine-categories">Red</label>
+                <br>
+                <input type="radio" name="wineType" value="White">
+                <label for="wine-categories">White</label>
+                <br>
+                <input type="radio" name="wineType" value="Rose">
+                <label for="wine-categories">Rose</label>
+                <br>
+                <input type="radio" name="wineType" value="Sparkling">
+                <label for="wine-categories">Sparkling</label>
+                <br>
+                <input type="radio" name="wineType" value="Dessert">
+                <label for="wine-categories">Dessert</label>
+                <br>
+                <!-- <input type="radio" name="wineType" value="">
+                <label for=""> </label> -->
             </div>
           </div>
+          <div id="submit-btn" type="button" class="btn">
+            <button type="submit;button;" class="btn btn-light" style="background-color:rgb(227, 196, 255);">Submit</button>
+          </div>
+          <div id="loading-btn" class="dflex justify-content-center">
+            <strong>Finding your wine...</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+          </div>
         </div>
-
       </div>
+    </form>
     </div>
-  
+  </div>
+
   <!-- Accordion 3 -->
   <div class="accordion" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
@@ -191,14 +227,18 @@
       <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
         aria-labelledby="panelsStayOpen-headingThree">
         <div class="accordion-body">
-          <p>Sharing the good stuff...</p>
+          <p></p>
+          <!-- chart -->
+          <div id="chart">
+            <div id="responsive-chart"></div>
+            <div id="synced-charts">
+              <div id="chart-line"></div>
+              <div id="chart-area"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-
-
-    <!-- chart -->
 
 
 
@@ -217,8 +257,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-  <!-- script.js -->
-  <script src="../script/script.js"></script>
+  <!-- scripts -->
+  <script src="../scripts/script.js"></script>
+  <script src="../scripts/chart.js"></script>
+
 </body>
 
 </html>
