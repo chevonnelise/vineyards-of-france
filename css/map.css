@@ -1,0 +1,29 @@
+#map-container {
+    /* relative position can absolutely position search container by coordinates */
+    position: relative;
+    width: auto;
+    height: 100vh;
+    z-index: 330000;
+}
+
+#map {
+    height: 100%;
+}
+
+#search-container {
+    position: relative;
+    top: 12px;
+    /* 12px from the top */
+    left: 50px;
+    /* 5px from the left */
+    z-index: 314161;
+}
+
+#search-results {
+    overflow-y: scroll;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: rgb(222, 254, 255);
+    background-blend-mode: color-dodge;
+}
+
